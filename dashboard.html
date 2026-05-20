@@ -1,15 +1,21 @@
-<h2>Dashboard</h2>
-<p id="balance"></p>
+<<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
 
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<body style="text-align:center; font-family:sans-serif;">
 
-<script>
-const tg = window.Telegram.WebApp;
-const user = tg.initDataUnsafe.user;
+  <h1>📊 Dashboard</h1>
+  <p>Welcome to your app</p>
 
-fetch("https://YOUR_BACKEND_URL/dashboard?tid=" + user.id)
-.then(res => res.json())
-.then(data => {
-  document.getElementById("balance").innerText = "Balance: " + data.balance;
-});
-</script>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    function logout() {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>. 
