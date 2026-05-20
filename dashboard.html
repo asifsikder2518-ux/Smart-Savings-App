@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Dashboard</title>
-</head>
-<body style="background:black; color:white; text-align:center; padding-top:100px;">
-
-<h2 id="welcome"></h2>
-
-<button onclick="logout()">Logout</button>
+<button onclick="deposit()">Deposit</button>
 
 <script>
-const user = localStorage.getItem("user");
+function deposit() {
+  const wallet = 0x8A59cC4cD48acc2E2aBbFCfC5D0b065E2D3E4156//  wallet address
 
-if(!user) {
-  window.location.href = "index.html";
-}
-
-document.getElementById("welcome").innerText = "Welcome " + user;
-
-function logout() {
-  localStorage.removeItem("user");
-  window.location.href = "index.html";
+  alert("Send USDT to this address:\n\n" + wallet);
 }
 </script>
-
-</body>
-</html> 
