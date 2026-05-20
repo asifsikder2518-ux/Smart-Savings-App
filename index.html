@@ -1,16 +1,18 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>DeFi Smart Saving</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 
-<body style="text-align:center; font-family:sans-serif;">
+<body style="text-align:center; background:black; color:white; font-family:sans-serif;">
 
   <h1>🚀 DeFi Smart Saving</h1>
   <p id="user">Loading...</p>
 
-  <button onclick="goDashboard()">Go Dashboard</button>
+  <button onclick="goDashboard()" style="padding:10px 20px; font-size:16px;">
+    Go Dashboard
+  </button>
 
   <script>
     const tg = window.Telegram.WebApp;
@@ -18,10 +20,10 @@
     if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
       const user = tg.initDataUnsafe.user;
       document.getElementById("user").innerText =
-        "Welcome " + (user.first_name || "User");
+        "Welcome " + (user.first_name || "User") + " 👋";
     } else {
       document.getElementById("user").innerText =
-        "Opened outside Telegram";
+        "Welcome Guest 👤";
     }
 
     function goDashboard() {
