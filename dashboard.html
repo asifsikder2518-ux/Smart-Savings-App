@@ -1,0 +1,15 @@
+<h2>Dashboard</h2>
+<p id="balance"></p>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<script>
+const tg = window.Telegram.WebApp;
+const user = tg.initDataUnsafe.user;
+
+fetch("https://YOUR_BACKEND_URL/dashboard?tid=" + user.id)
+.then(res => res.json())
+.then(data => {
+  document.getElementById("balance").innerText = "Balance: " + data.balance;
+});
+</script>
