@@ -1,0 +1,16 @@
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<script>
+const tg = window.Telegram.WebApp;
+const user = tg.initDataUnsafe.user;
+
+fetch("https://YOUR_BACKEND_URL/check-user?tid=" + user.id)
+.then(res => res.json())
+.then(data => {
+  if (data.registered) {
+    window.location.href = "dashboard.html";
+  } else {
+    window.location.href = "register.html";
+  }
+});
+</script>
