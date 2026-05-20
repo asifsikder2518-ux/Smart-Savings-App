@@ -1,16 +1,33 @@
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<<!DOCTYPE html>
+<html>
+<head>
+  <title>DeFi Smart Saving</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
 
-<script>
-const tg = window.Telegram.WebApp;
-const user = tg.initDataUnsafe.user;
+<body style="text-align:center; font-family:sans-serif;">
 
-fetch("https://YOUR_BACKEND_URL/check-user?tid=" + user.id)
-.then(res => res.json())
-.then(data => {
-  if (data.registered) {
-    window.location.href = "dashboard.html";
-  } else {
-    window.location.href = "register.html";
-  }
-});
-</script>.  
+  <h1>🚀 DeFi Smart Saving</h1>
+  <p id="user">Loading...</p>
+
+  <button onclick="goDashboard()">Go Dashboard</button>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+
+    if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+      const user = tg.initDataUnsafe.user;
+      document.getElementById("user").innerText =
+        "Welcome " + (user.first_name || "User");
+    } else {
+      document.getElementById("user").innerText =
+        "Opened outside Telegram";
+    }
+
+    function goDashboard() {
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+</body>
+</html>
