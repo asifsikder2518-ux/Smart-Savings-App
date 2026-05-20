@@ -1,0 +1,25 @@
+<input id="name" placeholder="Name"><br>
+<input id="email" placeholder="Email"><br>
+<button onclick="register()">Register</button>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<script>
+const tg = window.Telegram.WebApp;
+const user = tg.initDataUnsafe.user;
+
+function register() {
+  fetch("https://YOUR_BACKEND_URL/register", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      telegram_id: user.id,
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value
+    })
+  })
+  .then(() => {
+    window.location.href = "dashboard.html";
+  });
+}
+</script>
